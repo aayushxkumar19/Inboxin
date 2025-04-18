@@ -1,0 +1,16 @@
+Dear [Customer's Name],
+
+Thank you for reaching out with your request. Please find attached the detailed quotation for [Product/Service], tailored to your requirements.
+
+Summary:
+- Service/Product: [Description]
+- Quantity/Duration: [Details]
+- Total Estimate: [Amount]
+- Delivery Timeline: [X days/weeks]
+
+Let us know if you’d like to make adjustments or proceed with the order. We're happy to assist with any queries you may have.
+
+Warm regards,
+[Your Name]
+[Company Name] – Sales/Support Team
+[Contact Info]
