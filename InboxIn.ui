@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1000</width>
+        <height>700</height>
+      </rect>
+    </property>
+    <property name="windowTitle">
+      <string>InboxIN</string>
+    </property>
+    <property name="styleSheet">
+      <string>
+        QMainWindow {
+          background-color: #36393f;
+          font-family: 'Segoe UI', Arial;
+        }
+        QPushButton {
+          border-radius: 4px;
+          padding: 8px;
+          font-weight: bold;
+        }
+        QGroupBox {
+          border: 1px solid #40444b;
+          border-radius: 5px;
+          margin-top: 10px;
+          padding-top: 15px;
+        }
+        QGroupBox::title {
+          subcontrol-origin: margin;
+          left: 10px;
+          padding: 0 3px;
+          color: #b9bbbe;
+        }
+      </string>
+    </property>
+    <widget class="QWidget" name="centralwidget">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+        <!-- Left Panel -->
+        <item>
+          <widget class="QWidget" name="leftPanel">
+            <property name="minimumWidth">
+              <number>300</number>
+            </property>
+            <property name="styleSheet">
+              <string>
+                background-color: #2f3136;
+                border-right: 1px solid #202225;
+              </string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="leftMargin">
+                <number>15</number>
+              </property>
+              <property name="topMargin">
+                <number>20</number>
+              </property>
+              <property name="rightMargin">
+                <number>15</number>
+              </property>
+              <property name="bottomMargin">
+                <number>20</number>
+              </property>
+
+              <!-- Logo -->
+              <item alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="Logo"/>
+              </item>
+
+              <!-- Recipient Section -->
+              <item>
+                <widget class="QLabel" name="filetxt">
+                  <property name="styleSheet">
+                    <string>
+                      color: #b9bbbe;
+                      font-size: 12px;
+                      font-weight: bold;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>RECIPIENT LIST</string>
+                  </property>
+                </widget>
+              </item>
+              <item>
+                <widget class="QLineEdit" name="emailfile">
+                  <property name="styleSheet">
+                    <string>
+                      background-color: #40444b;
+                      color: white;
+                      border-radius: 3px;
+                      padding: 8px;
+                      border: none;
+                    </string>
+                  </property>
+                </widget>
+              </item>
+              <item>
+                <widget class="QPushButton" name="checkbtn">
+                  <property name="styleSheet">
+                    <string>
+                      background-color: #7289da;
+                      color: white;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>Verify</string>
+                  </property>
+                </widget>
+              </item>
+
+              <!-- Email Templates Section -->
+              <item>
+                <widget class="QLabel" name="lblTemplates">
+                  <property name="styleSheet">
+                    <string>
+                      color: #b9bbbe;
+                      font-weight: bold;
+                      font-size: 12px;
+                      margin-top: 20px;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>EMAIL TEMPLATES</string>
+                  </property>
+                </widget>
+              </item>
+              <item>
+                <widget class="QListWidget" name="templateList">
+                  <property name="styleSheet">
+                    <string>
+                      background-color: #40444b;
+                      color: white;
+                      border-radius: 3px;
+                    </string>
+                  </property>
+                </widget>
+              </item>
+              <item>
+                <widget class="QPushButton" name="btnLoadTemplate">
+                  <property name="styleSheet">
+                    <string>
+                      background-color: #7289da;
+                      color: white;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>Load Template</string>
+                  </property>
+                </widget>
+              </item>
+
+              <!-- Notification Center -->
+              <item>
+                <widget class="QLabel" name="lblNotifications">
+                  <property name="styleSheet">
+                    <string>
+                      color: #b9bbbe;
+                      font-weight: bold;
+                      font-size: 12px;
+                      margin-top: 20px;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>NOTIFICATIONS</string>
+                  </property>
+                </widget>
+              </item>
+              <item>
+                <widget class="QListWidget" name="notificationList">
+                  <property name="styleSheet">
+                    <string>
+                      background-color: #40444b;
+                      color: white;
+                      border-radius: 3px;
+                      max-height: 150px;
+                    </string>
+                  </property>
+                </widget>
+              </item>
+
+              <item>
+                <spacer name="verticalSpacer">
+                  <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                    <size>
+                      <width>20</width>
+                      <height>40</height>
+                    </size>
+                  </property>
+                </spacer>
+              </item>
+            </layout>
+          </widget>
+        </item>
+
+        <!-- Right Panel -->
+        <item>
+          <widget class="QWidget" name="rightPanel">
+            <property name="styleSheet">
+              <string>background-color: #36393f;</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="leftMargin">
+                <number>20</number>
+              </property>
+              <property name="topMargin">
+                <number>20</number>
+              </property>
+              <property name="rightMargin">
+                <number>20</number>
+              </property>
+              <property name="bottomMargin">
+                <number>20</number>
+              </property>
+
+              <!-- Email Composition -->
+              <item>
+                <widget class="QLabel" name="label">
+                  <property name="styleSheet">
+                    <string>
+                      color: white;
+                      font-size: 18px;
+                      font-weight: bold;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>COMPOSE EMAIL</string>
+                  </property>
+                </widget>
+              </item>
+              <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                    <widget class="QLabel" name="filetxt_2">
+                      <property name="styleSheet">
+                        <string>
+                          color: #b9bbbe;
+                          font-weight: bold;
+                        </string>
+                      </property>
+                      <property name="text">
+                        <string>Subject:</string>
+                      </property>
+                    </widget>
+                  </item>
+                  <item>
+                    <widget class="QLineEdit" name="sub">
+                      <property name="styleSheet">
+                        <string>
+                          background-color: #40444b;
+                          color: white;
+                          border-radius: 3px;
+                          padding: 8px;
+                          border: none;
+                        </string>
+                      </property>
+                    </widget>
+                  </item>
+                </layout>
+              </item>
+              <item>
+                <widget class="QPlainTextEdit" name="emailtext">
+                  <property name="styleSheet">
+                    <string>
+                      background-color: #40444b;
+                      color: white;
+                      border-radius: 3px;
+                      padding: 12px;
+                      border: none;
+                    </string>
+                  </property>
+                </widget>
+              </item>
+
+              <!-- Attachments -->
+              <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <item>
+                    <widget class="QPushButton" name="attachButton">
+                      <property name="styleSheet">
+                        <string>
+                          background-color: #40444b;
+                          color: white;
+                        </string>
+                      </property>
+                      <property name="text">
+                        <string>Attach</string>
+                      </property>
+                    </widget>
+                  </item>
+                  <item>
+                    <widget class="QLabel" name="attachmentLabel">
+                      <property name="styleSheet">
+                        <string>
+                          color: #b9bbbe;
+                          font-size: 12px;
+                        </string>
+                      </property>
+                      <property name="text">
+                        <string>No attachments</string>
+                      </property>
+                    </widget>
+                  </item>
+                </layout>
+              </item>
+
+              <!-- Schedule Send Checkbox -->
+              <item>
+                <widget class="QCheckBox" name="chkSchedule">
+                  <property name="styleSheet">
+                    <string>
+                      color: #b9bbbe;
+                      font-weight: bold;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>Schedule Send</string>
+                  </property>
+                </widget>
+              </item>
+
+              <!-- Schedule Controls Group -->
+              <item>
+                <widget class="QGroupBox" name="scheduleGroup">
+                  <property name="title">
+                    <string>Schedule Options</string>
+                  </property>
+                  <property name="visible">
+                    <bool>false</bool>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_3">
+                    <property name="spacing">
+                      <number>5</number>
+                    </property>
+                    <property name="leftMargin">
+                      <number>10</number>
+                    </property>
+                    <property name="topMargin">
+                      <number>15</number>
+                    </property>
+                    <property name="rightMargin">
+                      <number>10</number>
+                    </property>
+                    <property name="bottomMargin">
+                      <number>10</number>
+                    </property>
+                    <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_5">
+                        <item>
+                          <widget class="QLabel" name="lblDateTime">
+                            <property name="styleSheet">
+                              <string>
+                                color: #b9bbbe;
+                                font-weight: bold;
+                              </string>
+                            </property>
+                            <property name="text">
+                              <string>Date &amp; Time:</string>
+                            </property>
+                          </widget>
+                        </item>
+                        <item>
+                          <widget class="QDateTimeEdit" name="dtScheduleTime">
+                            <property name="styleSheet">
+                              <string>
+                                background-color: #40444b;
+                                color: white;
+                                border-radius: 3px;
+                              </string>
+                            </property>
+                            <property name="calendarPopup">
+                              <bool>true</bool>
+                            </property>
+                            <property name="minimumDateTime">
+                              <datetime>
+                                <year>2000</year>
+                                <month>1</month>
+                                <day>1</day>
+                                <hour>0</hour>
+                                <minute>0</minute>
+                              </datetime>
+                            </property>
+                          </widget>
+                        </item>
+                      </layout>
+                    </item>
+                    <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_6">
+                        <item>
+                          <widget class="QLabel" name="lblRecurrence">
+                            <property name="styleSheet">
+                              <string>
+                                color: #b9bbbe;
+                                font-weight: bold;
+                              </string>
+                            </property>
+                            <property name="text">
+                              <string>Recurrence:</string>
+                            </property>
+                          </widget>
+                        </item>
+                        <item>
+                          <widget class="QComboBox" name="cmbRecurrence">
+                            <property name="styleSheet">
+                              <string>
+                                background-color: #40444b;
+                                color: white;
+                                border-radius: 3px;
+                              </string>
+                            </property>
+                            <item>
+                              <property name="text">
+                                <string>Once</string>
+                              </property>
+                            </item>
+                            <item>
+                              <property name="text">
+                                <string>Daily</string>
+                              </property>
+                            </item>
+                            <item>
+                              <property name="text">
+                                <string>Weekly</string>
+                              </property>
+                            </item>
+                          </widget>
+                        </item>
+                      </layout>
+                    </item>
+                    <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_7">
+                        <item>
+                          <widget class="QLabel" name="lblNextRun">
+                            <property name="styleSheet">
+                              <string>
+                                color: #b9bbbe;
+                                font-weight: bold;
+                              </string>
+                            </property>
+                            <property name="text">
+                              <string>Next Scheduled:</string>
+                            </property>
+                          </widget>
+                        </item>
+                        <item>
+                          <widget class="QLabel" name="lblNextScheduled">
+                            <property name="styleSheet">
+                              <string>
+                                color: #7289da;
+                                font-weight: bold;
+                              </string>
+                            </property>
+                            <property name="text">
+                              <string>No scheduled sends</string>
+                            </property>
+                          </widget>
+                        </item>
+                      </layout>
+                    </item>
+                    <item alignment="Qt::AlignRight">
+                      <widget class="QPushButton" name="btnCancelSchedule">
+                        <property name="styleSheet">
+                          <string>
+                            background-color: #f04747;
+                            color: white;
+                            padding: 5px 10px;
+                            border-radius: 4px;
+                            font-weight: bold;
+                          </string>
+                        </property>
+                        <property name="text">
+                          <string>Cancel Scheduled Send</string>
+                        </property>
+                        <property name="enabled">
+                          <bool>false</bool>
+                        </property>
+                      </widget>
+                    </item>
+                  </layout>
+                </widget>
+              </item>
+
+              <!-- Sending Controls -->
+              <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                  <item>
+                    <widget class="QLabel" name="delayLabel">
+                      <property name="styleSheet">
+                        <string>
+                          color: #b9bbbe;
+                          font-weight: bold;
+                        </string>
+                      </property>
+                      <property name="text">
+                        <string>Delay (sec):</string>
+                      </property>
+                    </widget>
+                  </item>
+                  <item>
+                    <widget class="QSpinBox" name="delayInput">
+                      <property name="styleSheet">
+                        <string>
+                          background-color: #40444b;
+                          color: white;
+                          border-radius: 3px;
+                        </string>
+                      </property>
+                      <property name="minimum">
+                        <number>0</number>
+                      </property>
+                      <property name="maximum">
+                        <number>60</number>
+                      </property>
+                      <property name="value">
+                        <number>5</number>
+                      </property>
+                    </widget>
+                  </item>
+                </layout>
+              </item>
+
+              <!-- Progress -->
+              <item>
+                <widget class="QProgressBar" name="sendProgress">
+                  <property name="styleSheet">
+                    <string>
+                      QProgressBar {
+                        border-radius: 3px;
+                        background: #40444b;
+                        height: 20px;
+                      }
+                      QProgressBar::chunk {
+                        background: #7289da;
+                        border-radius: 3px;
+                      }
+                    </string>
+                  </property>
+                </widget>
+              </item>
+
+              <!-- Pause/Resume Button -->
+              <item alignment="Qt::AlignRight">
+                <widget class="QPushButton" name="btnPauseResume">
+                  <property name="styleSheet">
+                    <string>
+                      background-color: #f0a732;
+                      color: white;
+                      padding: 8px 16px;
+                      border-radius: 4px;
+                      font-weight: bold;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>PAUSE</string>
+                  </property>
+                  <property name="enabled">
+                    <bool>false</bool>
+                  </property>
+                </widget>
+              </item>
+
+              <!-- Send Button -->
+              <item alignment="Qt::AlignRight">
+                <widget class="QPushButton" name="submibtn">
+                  <property name="styleSheet">
+                    <string>
+                      background-color: #7289da;
+                      color: white;
+                      padding: 8px 16px;
+                    </string>
+                  </property>
+                  <property name="text">
+                    <string>SEND</string>
+                  </property>
+                </widget>
+              </item>
+            </layout>
+          </widget>
+        </item>
+      </layout>
+    </widget>
+    <widget class="QStatusBar" name="statusbar"/>
+  </widget>
+  <resources/>
+  <connections/>
+</ui>
